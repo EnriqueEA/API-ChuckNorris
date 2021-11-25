@@ -24,6 +24,7 @@ button {
    cursor: pointer;
    border: 2px solid transparent;
    transition: all 0.3s;
+   align-self: center;
 }
 
 button:hover {
@@ -51,15 +52,24 @@ label {
    align-items: center;
 }
 
-input[type="number"] {
+input {
    color: #000;
+   border: 2px solid #4996ff;
    border-radius: 5px;
-   width: 50px;
    font-size: 1.1rem;
-   align-self: stretch;
+}
+
+input[type="number"] {
+   width: 50px;
 }
 
 .results {
    background-color: #3e3e3e;
    padding: .5em 1em;
+}
+
+.containerInput {
+   display: flex;
+   gap: 1em;
+   flex-wrap: wrap;
 }

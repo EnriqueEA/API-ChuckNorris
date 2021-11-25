@@ -4,6 +4,7 @@ import Select from "../Select/Select";
 import BodyJoke from "../BodyJoke/BodyJoke";
 import "./Jokes.css";
 import Number from "../Number/Number";
+import InputText from "../InputText/InputText";
 
 class Jokes extends Component {
   constructor(props) {
@@ -13,13 +14,15 @@ class Jokes extends Component {
       amountJokes: 1,
       amountResult: 0,
       category: '',
+      firstName: '',
+      lastName: '',
       jokes: [],
     };
   }
 
   async getData(e) {
     const jokes = await fetchData(false, {
-      victimsName: { firstName: "Enrique", lastName: "EA" },
+      victimsName: { firstName: this.state.firstName, lastName: this.state.lastName },
       multipleJokes: this.state.amountJokes,
       limitTo: [this.state.category]
     });
@@ -42,7 +45,6 @@ class Jokes extends Component {
     }
 
     const bodysJoke = jokes.map(joke => (<BodyJoke joke={ joke } key={ joke.id } />));
-    console.log(bodysJoke);
 
     this.setState({
       show: true,
@@ -59,17 +61,28 @@ class Jokes extends Component {
     this.setState({ amountJokes: amountJokes });
   }
 
+  getName(firstName, lastName) {
+    this.setState({ firstName: firstName, lastName: lastName });
+  }
+
   render() {
     return (
       <>
         <div className="container">
           <h2>Chuck Norris Jokes</h2>
-          <Select eventChange={this.getCategory.bind(this)} />
-          <Number eventChange={this.getAmount.bind(this)} />
-          <button onClick={this.getData.bind(this)}>Show Jokes</button>
+          <Select eventChange={ this.getCategory.bind(this) } />
+          <Number eventChange={ this.getAmount.bind(this) } />
+          <InputText eventKeyUp={ this.getName.bind(this) } />
+          <button onClick={ this.getData.bind(this) }>Show Jokes</button>
         </div>
-        { this.state.show === true ? <div className="results"><b>{ this.state.amountResult } results found</b></div> : '' }
-        { this.state.show === true ? this.state.jokes : '' }
+        {this.state.show === true ? (
+          <div className="results">
+            <b>{ this.state.amountResult } results found</b>
+          </div>
+        ) : (
+          ""
+        )}
+        {this.state.show === true ? this.state.jokes : ""}
       </>
     );
   }

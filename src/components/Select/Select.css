@@ -1,10 +1,13 @@
 .select {
-   background: #4996ff;
+   background: #fff;
+   color: #4996ff;
    font-weight: bold;
-   border: 2px solid #fff;
+   border: 2px solid #4996ff;
    border-radius: 5px;
    align-self: stretch;
 }
+
 .select option {
+   color: #4996ff;
    border-radius: 0;
 }

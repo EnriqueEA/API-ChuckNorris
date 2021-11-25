@@ -13,7 +13,7 @@ class BodyJoke extends Component {
       <>
         <div className="body">
           <span className="id">
-            <b>Joke number: </b>#{this.props.joke.id}
+            <b>Joke number: </b>#{ this.props.joke.id }
           </span>
           <div className="categoriesContainer">
             <b>Categories: </b>
@@ -21,7 +21,7 @@ class BodyJoke extends Component {
           </div>
           <div className="joke">
             <b>Joke: </b>
-            {this.props.joke.joke}
+            { this.props.joke.joke }
           </div>
         </div>
         <hr />

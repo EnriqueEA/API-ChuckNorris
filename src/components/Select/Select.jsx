@@ -15,7 +15,7 @@ class Select extends Component {
     let categories = await fetchData(true);
     categories = categories.map((ctg) => (
       <option value={ctg} key={ctg}>
-        {ctg}
+        { ctg }
       </option>
     ));
     this.setState({ categories: categories });
@@ -29,8 +29,8 @@ class Select extends Component {
           onChange={(e) => this.props.eventChange(e.target.value)}
           className="select"
         >
-          <option value="1">Seleccione</option>
-          {this.state.categories}
+          <option value="">Seleccione</option>
+          { this.state.categories }
         </select>
       </label>
     );
