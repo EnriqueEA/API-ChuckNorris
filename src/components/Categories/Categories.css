@@ -1,0 +1,14 @@
+.categoriesContainer {
+   display: flex;
+   gap: .5em;
+}
+
+.categories {
+   background-color: #3e3e3e;
+   color: #fff;
+   font-size: .85rem;
+   font-weight: 500;
+   padding-left: 1em;
+   padding-right: 1em;
+   border-radius: .7em;
+}
